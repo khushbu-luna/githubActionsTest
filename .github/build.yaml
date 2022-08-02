@@ -1,1 +1,20 @@
+name: Test Deployment
+
+on:
+  push:
+    branches: [ main ]
+    
+env:
+  APP_CONFIG: hello.json
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+       -name: Print config file path
+       run: |
+         echo $APP_CONFIG
 
