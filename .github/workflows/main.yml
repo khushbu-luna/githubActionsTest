@@ -22,3 +22,10 @@ jobs:
         
       - name: Print config file path
         run: echo $APP_CONFIG
+        
+  deploy-to-dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Print conf
+        run: echo ${{ secrets.CONFIG }}
