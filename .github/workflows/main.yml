@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Print conf
         run: |
-          cat ${{ secrets.CONFIG }}
+          cat "${{ secrets.CONFIG }}"
           #$APP_CONFIG = ${{ secrets.CONFIG }}
           #echo $APP_CONFIG
         
