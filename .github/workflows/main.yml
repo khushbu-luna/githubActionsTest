@@ -28,7 +28,8 @@ jobs:
     steps:    
       - name: Print env conf
         run: |
-          cat $APP_CONFIG
+          echo env.$APP_CONFIG
+          cat env.$APP_CONFIG
           
       - name: Print environment conf
         run: |
