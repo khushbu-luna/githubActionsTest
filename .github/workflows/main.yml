@@ -22,17 +22,17 @@ jobs:
         
   deploy-to-dev:
     runs-on: ubuntu-latest
-    environment: dev
+    #environment: dev
     env:
       APP_CONFIG: dev.txt
     steps:    
       - name: Print env conf
         run: |
           echo env.$APP_CONFIG
-          cat env.$APP_CONFIG
+          #cat env.$APP_CONFIG
           
       - name: Print environment conf
         run: |
           echo "${{ secrets.CONFIG }}"
-          cat "${{ secrets.CONFIG }}"
+          #cat "${{ secrets.CONFIG }}"
         
