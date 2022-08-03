@@ -28,4 +28,7 @@ jobs:
     environment: dev
     steps:
       - name: Print conf
-        run: echo ${{ secrets.CONFIG }}
+        run: |
+          $APP_CONFIG = ${{ secrets.CONFIG }}
+          echo $APP_CONFIG
+        
