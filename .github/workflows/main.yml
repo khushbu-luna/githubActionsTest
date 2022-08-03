@@ -3,12 +3,9 @@ name: CI
 on:
   #push:
   #  branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
   workflow_dispatch:
-
-env:
-  APP_CONFIG: hello.json
 
 jobs:
   build:
@@ -26,10 +23,15 @@ jobs:
   deploy-to-dev:
     runs-on: ubuntu-latest
     environment: dev
-    steps:
-      - name: Print conf
+    env:
+      APP_CONFIG: dev.txt
+    steps:    
+      - name: Print env conf
         run: |
+          cat $APP_CONFIG
+          
+      - name: Print environment conf
+        run: |
+          echo "${{ secrets.CONFIG }}"
           cat "${{ secrets.CONFIG }}"
-          #$APP_CONFIG = ${{ secrets.CONFIG }}
-          #echo $APP_CONFIG
         
