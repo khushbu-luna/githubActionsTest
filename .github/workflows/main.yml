@@ -25,6 +25,9 @@ jobs:
     #environment: dev
     env:
       APP_CONFIG: dev.txt
+      PROJECT_NAME: "braavos"
+      PROJECT_STAGE: "dev"
+      STACK_NAME: "WireInfraStack"
     steps:    
       - name: Print env conf
         run: |
@@ -35,4 +38,12 @@ jobs:
         run: |
           echo "${{ secrets.CONFIG }}"
           #cat "${{ secrets.CONFIG }}"
+          
+      - name: Upload file to s3 bucket and update the lambda
+        run: |
+          ls -l target
+          S3BucketName = "$PROJECT_NAME""$PROJECT_STAGE"-"$STACK_NAME"-lambda-repo
+          echo $S3BucketName
+          
+      
         
