@@ -41,7 +41,7 @@ jobs:
           
       - name: Upload file to s3 bucket and update the lambda
         env:
-          S3BucketName: "${PROJECT_NAME}${PROJECT_STAGE}-${STACK_NAME}-lambda-repo"
+          S3BucketName: "{$PROJECT_NAME}{$PROJECT_STAGE}-{$STACK_NAME}-lambda-repo"
         run:  echo $S3BucketName
           
       
